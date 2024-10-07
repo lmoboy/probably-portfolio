@@ -1,3 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  overflow-y: hidden;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +13,71 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(24, 24, 24);
 }
+
+body::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300vw;
+  height: 105vh;
+  background-size:150% 150%;
+  background-repeat: no-repeat;
+  background-image:  radial-gradient(circle, #0f0c29, #15122c, #131320);
+  filter: blur(0px);
+  z-index: -1;
+  animation: gradientAnimation 12s infinite ease-in-out;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  min-width: 300px;
+  width: 100%;
+  background-color: rgba(24, 24, 24, 0.01);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  margin: 5px;
+}
+.CoolHeader {
+  font-size: xx-large;
+  font-weight: 700;
+  background: linear-gradient(90deg, rgb(167, 167, 167) 0%, rgb(54, 54, 54) 35%, rgb(97, 97, 97) 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+
+.Primary{
+  font-size:x-large;
+  background-color: rgba(24, 24, 24, 0);
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  
+  padding: 10px;
 }
